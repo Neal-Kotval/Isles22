@@ -65,9 +65,10 @@ class NiiDatasetLoader:
         labels = []
         for folder in sorted(glob.glob(os.path.join(data_folder, "*"))):
             # show an update info
-            print('[INFO] Processing foder: ' + folder)
+            print('[INFO] Processing folder: ' + folder)
             img = []
             for modality in modalities:
+                print(glob.glob(os.path.join(folder, '*%s*.nii' % modality)))
                 filename = glob.glob(os.path.join(folder, '*%s*.nii' % modality))[0]
                 image = nib.load(filename).get_fdata()
                 # check to see if our preprocessors are not None
@@ -103,12 +104,13 @@ class NiiImagesLoader:
 
     def load(self, folder, modalities):
         # show an update info
-        print('[INFO] Processing foder: ' + folder)
+        print('[INFO] Processing folder: ' + folder)
         # initialize the list of features and labels
         data = []
         images = [] 
         for modality in modalities:
-            filename = glob.glob(os.path.join(folder, '*%s*.nii.gz' % modality))[0]
+            print(os.path.join(folder, 'ses-0001', '*%s*.nii.gz' % modality))
+            filename = glob.glob(os.path.join(folder, 'ses-0001', '*%s*.nii.gz' % modality))[0]
             img = nib.load(filename).get_fdata()
             # check to see if our preprocessors are not None
             if self.preprocessors is not None:

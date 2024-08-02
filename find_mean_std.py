@@ -4,7 +4,7 @@ import glob
 from utils import NiiImagesLoader
 
 config = dict()
-config["data_folder"] = os.path.abspath("/Users/nealkotval/Isles22/data") #path to folder containing the training data
+config["data_folder"] = os.path.abspath("/Users/nealkotval/Isles22/data/isles/rawdata") #path to folder containing the training data
 config["all_modalities"] = ["dwi"]
 config["training_modalities"] = config["all_modalities"]  # change this if you want to only use some of the modalities
 
