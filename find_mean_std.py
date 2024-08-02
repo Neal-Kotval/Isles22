@@ -3,6 +3,9 @@ import os
 import glob
 from utils import NiiImagesLoader
 
+# Mean:  [37.3555097]
+# STD:  [84.6591447]
+
 config = dict()
 config["data_folder"] = os.path.abspath("/Users/nealkotval/Isles22/data/isles/rawdata") #path to folder containing the training data
 config["all_modalities"] = ["dwi"]
