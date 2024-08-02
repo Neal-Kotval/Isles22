@@ -69,7 +69,7 @@ class NiiDatasetLoader:
             img = []
             for modality in modalities:
                 print(glob.glob(os.path.join(folder, '*%s*.nii' % modality)))
-                filename = glob.glob(os.path.join(folder, '*%s*.nii' % modality))[0]
+                filename = glob.glob(os.path.join(folder, 'ses-0001', '*%s*.nii.gz' % modality))[0]
                 image = nib.load(filename).get_fdata()
                 # check to see if our preprocessors are not None
                 if self.preprocessors is not None:
